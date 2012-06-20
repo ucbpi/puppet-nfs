@@ -1,7 +1,7 @@
 class nfs::params {
   # define the package we require
-  $packages = [ "nfs-utils" ]
-  $service = [ "nfs" ]
+  $packages = [ "nfs-utils", "rpcbind" ]
+  $service = [ "rpcbind", "nfslock", "nfs" ]
   
   # define where we should default to creating our export directories
 
