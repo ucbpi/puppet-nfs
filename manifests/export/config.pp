@@ -1,12 +1,12 @@
-# == Define: nfs::config
+# == Define: nfs::export::config
 #
 # Sets up our NFS exports file, and handles reloading of the exports file
 # whenever changes are made
 #
-class nfs::config {
+class nfs::export::config {
   include concat::setup
   include nfs
-  include nfs::exportfs::reload
+  include nfs::export::reload
 
   $config = $nfs::config
   validate_absolute_path( $config )
@@ -15,7 +15,7 @@ class nfs::config {
     owner  => root,
     group  => root,
     mode   => '0444',
-    notify => Class['nfs::exportfs::reload'],
+    notify => Class['nfs::export::reload'],
   }
 
   $head_frag_order_arr = [ $nfs::order[header], 'header' ]

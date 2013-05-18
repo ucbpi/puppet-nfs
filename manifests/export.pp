@@ -1,10 +1,10 @@
 # == Define: nfs::export
 #
-# Defines an NFS export
+# Defines an NFS export - never needs to be called manually
 #
 define nfs::export {
   include nfs
-  include nfs::config
+  include nfs::export::config
 
   $config = $nfs::config
 
