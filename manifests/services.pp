@@ -3,5 +3,10 @@
 # Enables the NFS services required for client or server operations
 #
 class nfs::services {
-  service { $nfs::services: ensure => running }
+  service { $nfs::services:
+    ensure => running,
+  }
+  service { 'nfslock':
+    enable => true,
+  }
 }
