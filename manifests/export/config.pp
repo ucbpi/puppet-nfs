@@ -7,6 +7,7 @@ class nfs::export::config {
   include concat::setup
   include nfs
   include nfs::export::reload
+  include nfs::services
 
   $config = $nfs::config
   validate_absolute_path( $config )
