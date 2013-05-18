@@ -1,5 +1,9 @@
+# == Class: nfs::service
+#
+# Enables the NFS service
+#
 class nfs::service {
-  service { $nfs::params::service:
-    ensure => running,
-  }
+  include nfs::params
+
+  service { $nfs::params::service: ensure => running }
 }
