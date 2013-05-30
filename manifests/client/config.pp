@@ -4,6 +4,7 @@
 #
 class nfs::client::config(
   $rpcgssdargs = undef,
+  $rpcidmapdargs = undef,
   $secure_nfs = undef,
   $nfsv4 = undef,
   $idmapd_domain = undef,
@@ -29,7 +30,7 @@ class nfs::client::config(
 
     ini_setting { "${config}:SECURE_NFS":
       setting => 'SECURE_NFS',
-      value   => $secure_content,
+      value   => "\"${secure_content}\"",
     }
   }
 
@@ -37,9 +38,18 @@ class nfs::client::config(
     validate_string( $rpcgssdargs )
     ini_setting { "${config}:RPCGSSDARGS":
       setting => 'RPCGSSDARGS',
-      value   => $rpcgssdargs,
+      value   => "\"${rpcgssdargs}\"",
     }
   }
+
+  if $rpcidmapdargs != undef {
+    validate_string( $rpcidmapdargs )
+    ini_setting { "${config}:RPCIDMAPDARGS":
+      setting => 'RPCIDMAPDARGS',
+      value   => "\"${rpcidmapdargs}\"",
+    }
+  }
+
 
   # This should probably be broken out into a GSSAPI module, but for now,
   # it lives here.
