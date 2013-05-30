@@ -3,11 +3,8 @@
 # Manages NFS client/server
 #
 class nfs {
-  $packages = [ 'nfs-utils', 'rpcbind' ]
-
-  # we'll leave nfslock out of here, since it doesn't handle the right
-  # return codes.  we may need to revisit later and fix.
-  $services = [ 'rpcbind', 'nfs' ]
+  # ensure we install the needed packages
+  include nfs::install
 
   # define where we should default to creating our export directories
 

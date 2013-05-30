@@ -4,7 +4,8 @@
 #
 class nfs::install {
   # install our packages
-  package { $nfs::params::packages:
+  $packages = [ 'nfs-utils', 'rpcbind' ]
+  package { $packages:
     ensure => installed,
   }
 }

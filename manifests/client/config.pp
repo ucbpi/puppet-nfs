@@ -18,6 +18,7 @@ class nfs::client::config(
     ensure  => present,
     path    => $config,
     section => '',
+    require => Class['nfs::install'],
   }
 
   # SECURE_NFS Setting
