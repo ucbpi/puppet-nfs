@@ -1,3 +1,7 @@
+2013-05-30 Aaron Russo <arusso@berkeley.edu> - 0.0.3
+* Ensure necessary packages are installed when configuring client
+* Ensure necessary services are running
+
 2013-05-29 Aaron Russo <arusso@berkeley.edu> - 0.0.2
 * Fixed bug with quotes not surrounding arguments
 * Added RPCIDMAPDARGS client configuraiton parameter 
