@@ -1,3 +1,6 @@
+2013-06-02 Aaron Russo <arusso@berkeley.edu> - 0.0.4
+* updating docs for acct rename
+
 2013-05-30 Aaron Russo <arusso@berkeley.edu> - 0.0.3
 * Ensure necessary packages are installed when configuring client
 * Ensure necessary services are running
